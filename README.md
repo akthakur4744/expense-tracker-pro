@@ -16,6 +16,7 @@ A production-ready expense tracker application built with a modern monorepo arch
 - **Backend / DB / Auth**: [Firebase](https://firebase.google.com/) (Firestore, Authentication, Hosting)
 
 ## ✨ Features
+- **AI-Architected**: Built entirely by advanced AI agents, showcasing the power of autonomous coding.
 - **Authentication**: Secure Login & Signup via Firebase Auth.
 - **Cross-Platform UI**: Consistent, high-contrast Dark/Light mode theme.
 - **Dashboard**: Real-time overview of Balance, Income, and Expenses.
