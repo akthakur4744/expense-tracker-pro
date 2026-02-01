@@ -19,38 +19,62 @@ A production-ready expense tracker application built with a modern monorepo arch
 
 ```mermaid
 graph TD
-    User([User])
-    subgraph Frontend ["Frontend Applications"]
-        Web["Web App - Next.js"]
-        Mobile["Mobile App - Expo/RN"]
-    end
-    subgraph Shared ["Shared Packages - Monorepo"]
-        UI["UI Components - Tamagui"]
-        Logic["App Logic / Provider"]
-        Config["Config / Navigation"]
-    end
-    subgraph Backend ["Firebase Services"]
-        Auth["Authentication"]
-        DB[("Firestore Database")]
-        Hosting["Hosting - Web Only"]
+    %% Styling
+    classDef web fill:#2563eb,stroke:#fff,stroke-width:2px,color:#fff
+    classDef mobile fill:#059669,stroke:#fff,stroke-width:2px,color:#fff
+    classDef shared fill:#7c3aed,stroke:#fff,stroke-width:2px,color:#fff
+    classDef cloud fill:#f59e0b,stroke:#fff,stroke-width:2px,color:#fff
+    classDef user fill:#334155,stroke:#fff,stroke-width:2px,color:#fff
+
+    User([👤 User Interacts]):::user
+
+    subgraph Apps ["Frontend Applications"]
+        Web["🌐 Web App (Next.js)"]:::web
+        Mobile["📱 Mobile App (Expo/RN)"]:::mobile
     end
 
-    User -->|Browser| Web
-    User -->|Mobile Device| Mobile
+    subgraph Bridges ["Unified Bridge Layer"]
+        Solito["🌉 Solito (Unified Routing)"]:::shared
+    end
 
-    Web -->|Imports| UI
-    Web -->|Imports| Logic
-    Mobile -->|Imports| UI
-    Mobile -->|Imports| Logic
+    subgraph Packages ["Monorepo Packages (@my/...)"]
+        subgraph AppPkg ["packages/app (Core Logic)"]
+            Features["✨ Features (Screens)"]
+            Providers["🔐 Auth / Theme Providers"]
+            Comp["🧩 Shared Components"]
+        end
+        UI["🎨 packages/ui (Tamagui Design System)"]:::shared
+        Config["⚙️ packages/config (Constants/ESLint)"]:::shared
+    end
 
-    UI -->|Uses| Config
-    Logic -->|Uses| Config
+    subgraph Backend ["🔥 Firebase Infrastructure"]
+        Auth["🔑 Authentication"]:::cloud
+        DB[("🗄️ Firestore (Users/Transactions)")]:::cloud
+        Hosting["🚀 Web Hosting"]:::cloud
+        Storage["📂 Storage (Assets)"]:::cloud
+    end
 
-    Web -.->|Reads/Writes| DB
-    Mobile -.->|Reads/Writes| DB
-    Web -.->|Auth| Auth
-    Mobile -.->|Auth| Auth
-    Hosting -->|Serves| Web
+    %% Flow
+    User --> Web
+    User --> Mobile
+
+    Web --> Solito
+    Mobile --> Solito
+
+    Solito --> Features
+    Features --> Providers
+    Features --> Comp
+    
+    AppPkg --> UI
+    AppPkg --> Config
+    
+    Providers --> Auth
+    Features --> DB
+    Web --> Hosting
+    Features --> Storage
+
+    %% Layout hints
+    style AppPkg fill:none,stroke:#7c3aed,stroke-dasharray: 5 5
 ```
 
 ## ✨ Features
