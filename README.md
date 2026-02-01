@@ -2,6 +2,8 @@
 
 A production-ready expense tracker application built with a modern monorepo architecture, targeting both Web (Next.js) and Mobile (Expo/React Native) from a single codebase.
 
+> **✨ AI-Driven Development**: This entire project, including the monorepo setup, UI/UX implementation, and backend integration, was architected and built using **advanced AI agents**, demonstrating the future of software development.
+
 ## 🚀 live Demo
 **Web App:** [https://expense-tracker-pro-8531b.web.app](https://expense-tracker-pro-8531b.web.app)
 
