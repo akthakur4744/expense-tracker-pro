@@ -28,7 +28,7 @@ A production-ready expense tracker application built with a modern monorepo arch
 
 | Desktop Web | Mobile Web |
 |:---:|:---:|
-| <img src="screenshots/desktop-dashboard.png" width="600" /> | <img src="screenshots/mobile-dashboard.png" width="300" /> |
+| <img src="screenshots/desktop-dashboard.png" width="600" /> | <img src="screenshots/mobile-dashboard-v2.png" width="300" /> |
 
 ## 📂 Project Structure
 ```
