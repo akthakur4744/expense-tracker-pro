@@ -20,19 +20,19 @@ A production-ready expense tracker application built with a modern monorepo arch
 ```mermaid
 graph TD
     User([User])
-    subgraph Frontend [Frontend Applications]
-        Web[Web App (Next.js)]
-        Mobile[Mobile App (Expo/RN)]
+    subgraph Frontend ["Frontend Applications"]
+        Web["Web App - Next.js"]
+        Mobile["Mobile App - Expo/RN"]
     end
-    subgraph Shared [Shared Packages (Monorepo)]
-        UI[UI Components (Tamagui)]
-        Logic[App Logic / Provider]
-        Config[Config / Navigation]
+    subgraph Shared ["Shared Packages - Monorepo"]
+        UI["UI Components - Tamagui"]
+        Logic["App Logic / Provider"]
+        Config["Config / Navigation"]
     end
-    subgraph Backend [Firebase Services]
-        Auth[Authentication]
-        DB[(Firestore Database)]
-        Hosting[Hosting (Web Only)]
+    subgraph Backend ["Firebase Services"]
+        Auth["Authentication"]
+        DB[("Firestore Database")]
+        Hosting["Hosting - Web Only"]
     end
 
     User -->|Browser| Web
