@@ -15,6 +15,44 @@ A production-ready expense tracker application built with a modern monorepo arch
 - **UI Component Library**: [Tamagui](https://tamagui.dev/) (Cross-platform styling)
 - **Backend / DB / Auth**: [Firebase](https://firebase.google.com/) (Firestore, Authentication, Hosting)
 
+## 🏗 System Architecture
+
+```mermaid
+graph TD
+    User([User])
+    subgraph Frontend [Frontend Applications]
+        Web[Web App (Next.js)]
+        Mobile[Mobile App (Expo/RN)]
+    end
+    subgraph Shared [Shared Packages (Monorepo)]
+        UI[UI Components (Tamagui)]
+        Logic[App Logic / Provider]
+        Config[Config / Navigation]
+    end
+    subgraph Backend [Firebase Services]
+        Auth[Authentication]
+        DB[(Firestore Database)]
+        Hosting[Hosting (Web Only)]
+    end
+
+    User -->|Browser| Web
+    User -->|Mobile Device| Mobile
+
+    Web -->|Imports| UI
+    Web -->|Imports| Logic
+    Mobile -->|Imports| UI
+    Mobile -->|Imports| Logic
+
+    UI -->|Uses| Config
+    Logic -->|Uses| Config
+
+    Web -.->|Reads/Writes| DB
+    Mobile -.->|Reads/Writes| DB
+    Web -.->|Auth| Auth
+    Mobile -.->|Auth| Auth
+    Hosting -->|Serves| Web
+```
+
 ## ✨ Features
 - **AI-Architected**: Built entirely by advanced AI agents, showcasing the power of autonomous coding.
 - **Authentication**: Secure Login & Signup via Firebase Auth.
@@ -72,7 +110,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ### 3. Demo Login
 To quickly test the application without signing up, you can use these credentials:
 - **Email:** `usera@test.com`
-- **Password:** `password123`
+- **Password:** `password`
 
 ### 3. Running the App
 

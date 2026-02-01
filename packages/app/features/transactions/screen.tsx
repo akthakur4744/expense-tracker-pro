@@ -118,10 +118,10 @@ export function TransactionListScreen({ onBack }: { onBack?: () => void }) {
                     {loading ? (
                         <Spinner size="large" color="$blue10" />
                     ) : (
-                        <YStack gap="$4" paddingBottom="$10">
+                        <YStack gap="$2" paddingBottom="$10">
                             {Object.keys(groupedTransactions).map(date => (
-                                <YStack key={date} gap="$3">
-                                    <Paragraph fontWeight="600" color="$color10">{date}</Paragraph>
+                                <YStack key={date} gap="$1" marginBottom="$2">
+                                    <Paragraph fontWeight="600" color="$color10" marginBottom="$1">{date}</Paragraph>
                                     {groupedTransactions[date].map(t => (
                                         <TransactionItem
                                             key={t.id}

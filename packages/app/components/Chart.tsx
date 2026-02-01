@@ -9,7 +9,14 @@ export function ExpenseChart() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        if (!db || !auth?.currentUser) return
+        if (!db) return
+
+        // If no user, stop loading immediately
+        if (!auth?.currentUser) {
+            setLoading(false)
+            return
+        }
+
         // Fetch expenses filtered by user
         const q = query(
             collection(db, 'transactions'),
@@ -27,19 +34,39 @@ export function ExpenseChart() {
                 return acc
             }, {} as Record<string, number>)
 
-            // Map to PieChart format
-            const colors = ['$blue10', '$pink10', '$green10', '$orange10', '$purple10']
-            const chartData = Object.keys(categoryTotals).map((cat, index) => ({
+            // Map to PieChart format first
+            const rawData = Object.keys(categoryTotals).map((cat) => ({
                 label: cat,
                 value: categoryTotals[cat],
-                color: colors[index % colors.length]
             }))
+
+            // Sort by value descending
+            rawData.sort((a, b) => b.value - a.value)
+
+            // Filter out zero values and assign colors
+            // use Hex codes because react-native-svg doesn't resolve Tamagui tokens
+            const colors = [
+                '#007AFF', // Blue
+                '#FF2D55', // Pink
+                '#34C759', // Green
+                '#FF9500', // Orange
+                '#AF52DE', // Purple
+                '#FFCC00', // Yellow
+                '#5856D6', // Indigo
+                '#FF3B30', // Red
+            ]
+            const chartData = rawData
+                .filter(item => item.value > 0)
+                .map((item, index) => ({
+                    ...item,
+                    color: colors[index % colors.length]
+                }))
 
             setData(chartData)
             setLoading(false)
         })
         return unsubscribe
-    }, [])
+    }, [auth?.currentUser])
 
     if (loading) return <YStack height={200} alignItems="center" justifyContent="center"><Spinner /></YStack>
 

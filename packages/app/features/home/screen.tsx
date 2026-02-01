@@ -189,7 +189,7 @@ export function HomeScreen() {
           <XStack justifyContent="space-around" paddingVertical="$2">
             <ActionIcon icon={Plus} label="Add" color="$pink10" onPress={() => router.push('/add-expense')} />
             <ActionIcon icon={CreditCard} label="Cards" color="$blue10" onPress={() => router.push('/transactions')} />
-            <ActionIcon icon={DollarSign} label="Send" color="$green10" />
+            <ActionIcon icon={DollarSign} label="Send" color="$green10" onPress={() => alert("Send feature coming soon!")} />
             <ActionIcon icon={MoreHorizontal} label="More" color="$gray10" onPress={() => alert("More features coming soon!")} />
           </XStack>
 
@@ -204,7 +204,7 @@ export function HomeScreen() {
               </Link>
             </XStack>
 
-            <YStack gap="$3" paddingBottom="$10">
+            <YStack gap="$2" paddingBottom="$10">
               {transactions.map((t) => (
                 <TransactionItem
                   key={t.id}

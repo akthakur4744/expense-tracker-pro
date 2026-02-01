@@ -6,7 +6,7 @@ export function TransactionItem({ icon: Icon, title, subtitle, amount, color, da
             width="100%"
             justifyContent="space-between"
             alignItems="center"
-            padding="$3"
+            padding="$2.5"
             backgroundColor="$background"
             borderRadius="$4"
             shadowColor="#000"
@@ -14,7 +14,6 @@ export function TransactionItem({ icon: Icon, title, subtitle, amount, color, da
             shadowOpacity={0.05}
             shadowRadius={5}
             elevation={2}
-            marginBottom="$2"
         >
             <XStack gap="$3" alignItems="center" flex={1} flexShrink={1} position="relative">
                 <YStack backgroundColor={color} padding="$2.5" borderRadius="$4" opacity={0.15} position="absolute" top={0} bottom={0} left={0} right={0} />
