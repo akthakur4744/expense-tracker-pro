@@ -57,7 +57,13 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
+
+### 3. Demo Login
+To quickly test the application without signing up, you can use these credentials:
+- **Email:** `usera@test.com`
+- **Password:** `password123`
 
 ### 3. Running the App
 
