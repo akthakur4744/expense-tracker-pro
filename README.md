@@ -1,4 +1,4 @@
-# Api Powered Expense Tracker Pro - Cross-Platform (Web & Mobile)
+# AI Powered Expense Tracker Pro - Cross-Platform (Web & Mobile)
 
 A production-ready expense tracker application built with a modern monorepo architecture, targeting both Web (Next.js) and Mobile (Expo/React Native) from a single codebase.
 
