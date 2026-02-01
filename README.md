@@ -22,6 +22,12 @@ A production-ready expense tracker application built with a modern monorepo arch
 - **Visualizations**: Interactive charts for expense breakdown.
 - **Responsive**: Optimised for Desktop, Tablet, and Mobile.
 
+## 📸 Screenshots
+
+| Desktop Web | Mobile Web |
+|:---:|:---:|
+| <img src="screenshots/desktop-dashboard.png" width="600" /> | <img src="screenshots/mobile-dashboard.png" width="300" /> |
+
 ## 📂 Project Structure
 ```
 .
